@@ -4,6 +4,7 @@ Welcome();
 Question1();
 Question2();
 Question3();
+Question4();
 
 static void Welcome()
 {
@@ -64,4 +65,72 @@ static void Question3()
     table.AddRow("decimal", $"{sizeof(decimal)}", $"{decimal.MinValue}", $"{decimal.MaxValue}");
     table.Write();
     Continue();
+}
+
+static void Question4()
+{
+    Console.WriteLine("This part of the program is a calculator. It allows for +, -, *, /, and %");
+    Console.WriteLine("First it will ask you for an integer, then a operator, then another number.");
+    Console.WriteLine("It will give you a result and then allow you to continue operating on the result.");
+    Console.WriteLine("Type in \"esc\" to exit the program.");
+
+    int firstInt = GetNum();
+
+    string input;
+
+    while (true)
+    {
+        input = PrintMenu(firstInt);
+
+        if (input == "esc")
+        {
+            break;
+        }
+
+        int secondInt = GetNum();
+        if (input == "+")
+        {
+            Console.WriteLine($"{firstInt} + {secondInt} = {firstInt + secondInt}");
+            firstInt += secondInt;
+        }
+        else if (input == "-")
+        {
+            Console.WriteLine($"{firstInt} - {secondInt} = {firstInt + secondInt}");
+            firstInt -= secondInt;
+        }
+        else if (input == "*")
+        {
+            Console.WriteLine($"{firstInt} * {secondInt} = {firstInt + secondInt}");
+            firstInt *= secondInt;
+        }
+        else if (input == "/")
+        {
+            Console.WriteLine($"{firstInt} / {secondInt} = {firstInt + secondInt}");
+            firstInt /= secondInt;
+        }
+        else if (input == "%")
+        {
+            Console.WriteLine($"{firstInt} % {secondInt} = {firstInt + secondInt}");
+            firstInt %= secondInt;
+        }
+    }
+}
+
+static string PrintMenu(int result)
+{
+    Console.WriteLine("+. Add");
+    Console.WriteLine("-. Subtract");
+    Console.WriteLine("*. Multiply");
+    Console.WriteLine("/. Divide");
+    Console.WriteLine("%. Modulus");
+
+    Console.Write($"Enter in a symbol to apply to {result}: ");
+    string op = Console.ReadLine();
+    return op;
+}
+
+static int GetNum()
+{
+    Console.Write("Enter in an integer: ");
+    return Convert.ToInt32(Console.ReadLine());
 }

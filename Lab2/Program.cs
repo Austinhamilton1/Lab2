@@ -3,6 +3,7 @@
 Welcome();
 Question1();
 Question2();
+Question3();
 
 static void Welcome()
 {
@@ -43,5 +44,24 @@ static void Question2()
     for(int i = 0; i < maxNum + 1; i++)
         Console.WriteLine($"{baseInt} * {i} = {baseInt * i}");
 
+    Continue();
+}
+
+static void Question3()
+{
+    ConsoleTable table = new ConsoleTable("Type", "Byte(s) of Memory", "Min", "Max");
+    Console.WriteLine("For this part, I will show you a table with some information regarding multiple types in C#");
+    table.AddRow("sbyte", $"{sizeof(sbyte)}", $"{sbyte.MinValue}", $"{sbyte.MaxValue}");
+    table.AddRow("byte", $"{sizeof(byte)}", $"{byte.MinValue}", $"{byte.MaxValue}");
+    table.AddRow("short", $"{sizeof(short)}", $"{short.MinValue}", $"{short.MaxValue}");
+    table.AddRow("ushort", $"{sizeof(ushort)}", $"{ushort.MinValue}", $"{ushort.MaxValue}");
+    table.AddRow("int", $"{sizeof(int)}", $"{int.MinValue}", $"{int.MaxValue}");
+    table.AddRow("uint", $"{sizeof(uint)}", $"{uint.MinValue}", $"{uint.MaxValue}");
+    table.AddRow("long", $"{sizeof(long)}", $"{long.MinValue}", $"{long.MaxValue}");
+    table.AddRow("ulong", $"{sizeof(ulong)}", $"{ulong.MinValue}", $"{ulong.MaxValue}");
+    table.AddRow("float", $"{sizeof(float)}", $"{float.MinValue}", $"{float.MaxValue}");
+    table.AddRow("double", $"{sizeof(double)}", $"{double.MinValue}", $"{double.MaxValue}");
+    table.AddRow("decimal", $"{sizeof(decimal)}", $"{decimal.MinValue}", $"{decimal.MaxValue}");
+    table.Write();
     Continue();
 }
